@@ -4,7 +4,7 @@ import { Box, Grid, Typography, Paper } from "@mui/material";
 
 const kpis = [
   { label: "Penduduk", value: 29779 },
-  { label: "Keluarga", value: 300 },
+  { label: "Keluarga", value: 2385 },
   { label: "Laki-Laki", value: 10473 },
   { label: "Perempuan", value: 10306 },
 ];
