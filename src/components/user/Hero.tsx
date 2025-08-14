@@ -42,7 +42,7 @@ export default function Hero() {
         justifyContent: "center",
         textAlign: "center",
         color: "white",
-        backgroundImage: `url(${data?.hero_image || "/sungai-nanam.jpg"})`,
+        backgroundImage: `url(${data?.hero_image || ""})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

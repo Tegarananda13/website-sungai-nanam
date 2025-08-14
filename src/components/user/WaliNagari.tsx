@@ -89,7 +89,7 @@ export default function WaliNagari() {
           >
             <Avatar
               alt={wali.wali_name || "Wali Nagari"}
-              src={wali.wali_photo || "/wali-nagari.jpg"}
+              src={wali.wali_photo ?? ""} // aman, kalau undefined/null jadi string kosong
               sx={{
                 width: 200,
                 height: 200,
