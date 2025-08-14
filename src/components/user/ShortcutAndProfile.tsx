@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Box, Grid, Typography, Paper, IconButton } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
@@ -15,17 +15,17 @@ interface BerandaData {
 const shortcuts = [
   {
     label: "Profil Nagari",
-    icon: <InfoIcon sx={{ fontSize: 50 }} />,
+    icon: <AccountTreeIcon sx={{ fontSize: 60 }} />, // diperbesar
     href: "/profil-nagari",
   },
   {
     label: "Berita",
-    icon: <NewspaperIcon sx={{ fontSize: 50 }} />,
+    icon: <NewspaperIcon sx={{ fontSize: 60 }} />, // diperbesar
     href: "/berita",
   },
   {
     label: "Wisata",
-    icon: <TravelExploreIcon sx={{ fontSize: 50 }} />,
+    icon: <TravelExploreIcon sx={{ fontSize: 60 }} />, // diperbesar
     href: "/wisata",
   },
 ];
@@ -55,75 +55,58 @@ export default function ShortcutAndProfile() {
 
   return (
     <Box sx={{ px: 4, py: 6 }}>
-      <Grid
-        container
-        spacing={4}
-        wrap="nowrap"
-        alignItems="flex-start"
-      >
-        {/* Shortcut Buttons (kiri) */}
-        <Grid
-          sx={{
-            flexBasis: { xs: "60%", md: "60%" },
-            maxWidth: { xs: "60%", md: "60%" },
-          }}
-        >
-          <Grid container spacing={3}>
-            {shortcuts.map((item, index) => (
-              <Grid
-                key={index}
-                sx={{
-                  flexBasis: { xs: "100%", sm: "33.333%" },
-                  maxWidth: { xs: "100%", sm: "33.333%" },
-                }}
-              >
-                <Paper
-                  elevation={3}
-                  onClick={() => router.push(item.href)}
-                  sx={{
-                    backgroundColor: "#f0eada",
-                    height: 160,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    cursor: "pointer",
-                    borderRadius: 3,
-                    transition: "transform 0.2s ease",
-                    "&:hover": {
-                      transform: "scale(1.03)",
-                      boxShadow: 6,
-                    },
-                  }}
-                >
-                  <IconButton color="primary" sx={{ mb: 1 }}>
-                    {item.icon}
-                  </IconButton>
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    {item.label}
-                  </Typography>
-                </Paper>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
+      {/* Tentang Nagari */}
+      <Box sx={{ mb: 6, textAlign: "center", maxWidth: 800, mx: "auto" }}>
+        <Typography variant="h4" fontWeight="bold" color="green" gutterBottom>
+          Tentang Nagari Sungai Nanam
+        </Typography>
+        <Typography variant="body1">
+          {description}
+        </Typography>
+      </Box>
 
-        {/* Tentang Nagari (kanan) */}
-        <Grid
-          sx={{
-            flexBasis: { xs: "40%", md: "40%" },
-            maxWidth: { xs: "40%", md: "40%" },
-            pl: { xs: 2, md: 4 },
-          }}
-        >
-          <Typography variant="h4" fontWeight="bold" color="green" gutterBottom>
-            Tentang Nagari Sungai Nanam
-          </Typography>
-          <Typography variant="body1">
-            {description ||
-              "Nagari Sungai Nanam merupakan salah satu nagari yang terletak di Kecamatan Lembah Gumanti, Kabupaten Solok."}
-          </Typography>
-        </Grid>
+      {/* Tombol Shortcut */}
+      <Grid container spacing={3} justifyContent="center">
+        {shortcuts.map((item, index) => (
+          <Grid
+            key={index}
+            sx={{
+              flexBasis: { xs: "100%", sm: "33.333%" },
+              maxWidth: { xs: "100%", sm: "33.333%" },
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Paper
+              elevation={3}
+              onClick={() => router.push(item.href)}
+              sx={{
+                backgroundColor: "#f0eada",
+                height: 180, // diperbesar
+                width: "100%",
+                maxWidth: 220, // diperbesar
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                borderRadius: 3,
+                transition: "transform 0.2s ease",
+                "&:hover": {
+                  transform: "scale(1.03)",
+                  boxShadow: 6,
+                },
+              }}
+            >
+              <IconButton color="primary" sx={{ mb: 1 }}>
+                {item.icon}
+              </IconButton>
+              <Typography variant="subtitle1" fontWeight="bold">
+                {item.label}
+              </Typography>
+            </Paper>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );

@@ -19,9 +19,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import InfoIcon from "@mui/icons-material/Info";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
-import MapIcon from "@mui/icons-material/Map";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -32,7 +31,7 @@ export default function Navbar() {
     { label: "Beranda", href: "/", icon: <HomeIcon /> },
     { label: "Profil Nagari", href: "/profil-nagari", icon: <AccountTreeIcon /> },
     { label: "Berita", href: "/berita", icon: <NewspaperIcon /> },
-    { label: "Wisata", href: "/wisata", icon: <MapIcon /> },
+    { label: "Wisata", href: "/wisata", icon: <TravelExploreIcon /> },
   ];
 
   return (

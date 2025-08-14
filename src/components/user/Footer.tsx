@@ -6,8 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn"
 import EmailIcon from "@mui/icons-material/Email"
 import PhoneIcon from "@mui/icons-material/Phone"
 import HomeIcon from "@mui/icons-material/Home"
-import InfoIcon from "@mui/icons-material/Info"
-import MapIcon from "@mui/icons-material/Map";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 
@@ -78,7 +77,7 @@ export default function Footer() {
               <NewspaperIcon sx={{ mr: 1 }} /> Berita
             </Link>
             <Link href="/wisata" color="inherit" underline="hover" sx={{ display: "flex", alignItems: "center" }}>
-              <MapIcon sx={{ mr: 1 }} /> Wisata
+              <TravelExploreIcon sx={{ mr: 1 }} /> Wisata
             </Link>
           </Stack>
         </Box>

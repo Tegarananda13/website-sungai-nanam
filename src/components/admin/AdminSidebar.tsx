@@ -9,11 +9,8 @@ import {
   Divider,
 } from "@mui/material";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import LandscapeIcon from "@mui/icons-material/Landscape";
-import ArticleIcon from "@mui/icons-material/Article";
 import HomeIcon from "@mui/icons-material/Home";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import MapIcon from "@mui/icons-material/Map";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import LogoutIcon from "@mui/icons-material/Logout";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import Link from "next/link";
@@ -24,7 +21,7 @@ const menuItems = [
   { text: "Beranda", icon: <HomeIcon />, href: "/admin/beranda" },
   { text: "Profil Nagari", icon: <AccountTreeIcon />, href: "/admin/profil-nagari" },
   { text: "Berita", icon: <NewspaperIcon />, href: "/admin/berita" },
-  { text: "Wisata", icon: <MapIcon />, href: "/admin/wisata" },
+  { text: "Wisata", icon: <TravelExploreIcon />, href: "/admin/wisata" },
 ];
 
 export default function AdminSidebar() {
