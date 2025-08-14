@@ -264,7 +264,7 @@ export default function AdminWisataPage() {
 
       {/* Tabel kanan */}
       <Box sx={{ flex: 2 }}>
-        <Typography variant="h5" mb={2}>
+        <Typography variant="h5" fontWeight="bold" mb={2}>
           Daftar Wisata
         </Typography>
 

@@ -40,7 +40,7 @@ export default function AdminLoginForm() {
     console.log("✅ Login sukses:", sessionData.session.user);
 
     // 🔹 4. Redirect ke dashboard admin
-    window.location.href = "/admin/dashboard";
+    window.location.href = "/admin/beranda";
   };
 
   return (

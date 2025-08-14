@@ -7,16 +7,16 @@ import EmailIcon from "@mui/icons-material/Email"
 import PhoneIcon from "@mui/icons-material/Phone"
 import HomeIcon from "@mui/icons-material/Home"
 import InfoIcon from "@mui/icons-material/Info"
-import ArticleIcon from "@mui/icons-material/Article"
-import PlaceIcon from "@mui/icons-material/Place"
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings"
+import MapIcon from "@mui/icons-material/Map";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
 
 export default function Footer() {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#A89753",
+        backgroundColor: "#0f1f1d",
         color: "white",
         py: 4,
         px: { xs: 3, md: 8 },
@@ -72,13 +72,13 @@ export default function Footer() {
               <HomeIcon sx={{ mr: 1 }} /> Beranda
             </Link>
             <Link href="/profil-nagari" color="inherit" underline="hover" sx={{ display: "flex", alignItems: "center" }}>
-              <InfoIcon sx={{ mr: 1 }} /> Profil Nagari
+              <AccountTreeIcon sx={{ mr: 1 }} /> Profil Nagari
             </Link>
             <Link href="/berita" color="inherit" underline="hover" sx={{ display: "flex", alignItems: "center" }}>
-              <ArticleIcon sx={{ mr: 1 }} /> Berita
+              <NewspaperIcon sx={{ mr: 1 }} /> Berita
             </Link>
             <Link href="/wisata" color="inherit" underline="hover" sx={{ display: "flex", alignItems: "center" }}>
-              <PlaceIcon sx={{ mr: 1 }} /> Wisata
+              <MapIcon sx={{ mr: 1 }} /> Wisata
             </Link>
           </Stack>
         </Box>

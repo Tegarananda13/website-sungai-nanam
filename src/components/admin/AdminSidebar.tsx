@@ -13,17 +13,18 @@ import LandscapeIcon from "@mui/icons-material/Landscape";
 import ArticleIcon from "@mui/icons-material/Article";
 import HomeIcon from "@mui/icons-material/Home";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import MapIcon from "@mui/icons-material/Map";
 import LogoutIcon from "@mui/icons-material/Logout";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 
 const menuItems = [
-  { text: "Dashboard", icon: <HomeIcon />, href: "/admin/dashboard" },
-  { text: "Beranda", icon: <DashboardIcon />, href: "/admin/beranda" },
+  { text: "Beranda", icon: <HomeIcon />, href: "/admin/beranda" },
   { text: "Profil Nagari", icon: <AccountTreeIcon />, href: "/admin/profil-nagari" },
-  { text: "Berita", icon: <ArticleIcon />, href: "/admin/berita" },
-  { text: "Wisata", icon: <LandscapeIcon />, href: "/admin/wisata" },
+  { text: "Berita", icon: <NewspaperIcon />, href: "/admin/berita" },
+  { text: "Wisata", icon: <MapIcon />, href: "/admin/wisata" },
 ];
 
 export default function AdminSidebar() {
@@ -39,8 +40,8 @@ export default function AdminSidebar() {
     <Box
       sx={{
         width: 240,
-        bgcolor: "#b3a367",
-        color: "black",
+        bgcolor: "#0f1f1d",
+        color: "white", // teks default putih
         height: "100vh",
         p: 2,
         position: "fixed",
@@ -66,11 +67,12 @@ export default function AdminSidebar() {
               sx={{
                 borderRadius: 2,
                 mb: 1,
-                bgcolor: pathname === item.href ? "rgba(0,0,0,0.15)" : "transparent",
-                "&:hover": { bgcolor: "rgba(0,0,0,0.15)" },
+                bgcolor: pathname === item.href ? "rgba(255,255,255,0.1)" : "transparent",
+                "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
+                color: "white", // teks putih
               }}
             >
-              <ListItemIcon sx={{ color: "black" }}>{item.icon}</ListItemIcon>
+              <ListItemIcon sx={{ color: "white" }}>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
           ))}
@@ -79,16 +81,17 @@ export default function AdminSidebar() {
 
       {/* Logout Button */}
       <Box>
-        <Divider sx={{ my: 2, borderColor: "rgba(0,0,0,0.3)" }} />
+        <Divider sx={{ my: 2, borderColor: "rgba(255,255,255,0.3)" }} />
         <List>
           <ListItemButton
             onClick={handleLogout}
             sx={{
               borderRadius: 2,
-              "&:hover": { bgcolor: "rgba(0,0,0,0.15)" },
+              "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
+              color: "white",
             }}
           >
-            <ListItemIcon sx={{ color: "black" }}>
+            <ListItemIcon sx={{ color: "white" }}>
               <LogoutIcon />
             </ListItemIcon>
             <ListItemText primary="Logout" />

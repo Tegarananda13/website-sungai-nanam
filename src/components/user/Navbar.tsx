@@ -1,22 +1,44 @@
-// components/Navbar.tsx
-"use client"
+"use client";
 
-import { AppBar, Toolbar, Button, Box, Typography, Stack } from "@mui/material"
-import Image from "next/image"
-import Link from "next/link"
+import { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Box,
+  Typography,
+  Stack,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  ListItemIcon,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import InfoIcon from "@mui/icons-material/Info";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import MapIcon from "@mui/icons-material/Map";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   const navItems = [
-    { label: "Beranda", href: "/" },
-    { label: "Profil Nagari", href: "/profil-nagari" },
-    { label: "Berita", href: "/berita" },
-    { label: "Wisata", href: "/wisata" },
-  ]
+    { label: "Beranda", href: "/", icon: <HomeIcon /> },
+    { label: "Profil Nagari", href: "/profil-nagari", icon: <AccountTreeIcon /> },
+    { label: "Berita", href: "/berita", icon: <NewspaperIcon /> },
+    { label: "Wisata", href: "/wisata", icon: <MapIcon /> },
+  ];
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#A89753" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#0f1f1d" }}>
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* Logo + Nama Nagari */}
+        {/* Logo + Nama */}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box
             sx={{
@@ -37,17 +59,21 @@ export default function Navbar() {
             />
           </Box>
           <Box>
-            <Typography variant="subtitle1" fontWeight="bold" lineHeight={1}>
+            <Typography variant="subtitle1" fontWeight="bold" color="green" lineHeight={1}>
               Nagari Sungai Nanam
             </Typography>
-            <Typography variant="caption" sx={{ color: "#222" }}>
+            <Typography variant="caption" sx={{ color: "#ccc" }}>
               Kabupaten Solok
             </Typography>
           </Box>
         </Box>
 
-        {/* Navigasi */}
-        <Stack direction="row" spacing={2}>
+        {/* Menu Desktop */}
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ display: { xs: "none", md: "flex" } }}
+        >
           {navItems.map((item, index) => (
             <Button
               key={index}
@@ -55,15 +81,13 @@ export default function Navbar() {
               href={item.href}
               sx={{
                 position: "relative",
-                color: "black", // emas terang
+                color: "white",
                 fontWeight: "normal",
                 letterSpacing: 0.5,
                 textTransform: "uppercase",
                 px: 2,
                 transition: "color 0.3s ease",
-                "&:hover": {
-                  color: "#000", // jadi hitam saat hover
-                },
+                "&:hover": { color: "#a5d6a7" },
                 "&::after": {
                   content: '""',
                   position: "absolute",
@@ -71,19 +95,54 @@ export default function Navbar() {
                   height: "2px",
                   left: 0,
                   bottom: 0,
-                  backgroundColor: "#000",
+                  backgroundColor: "#a5d6a7",
                   transition: "width 0.3s ease",
                 },
-                "&:hover::after": {
-                  width: "100%",
-                },
+                "&:hover::after": { width: "100%" },
               }}
+              startIcon={item.icon}
             >
               {item.label}
             </Button>
           ))}
         </Stack>
+
+        {/* Burger Menu Mobile */}
+        <IconButton
+          sx={{ display: { xs: "flex", md: "none" }, color: "white" }}
+          onClick={() => setOpen(true)}
+        >
+          <MenuIcon />
+        </IconButton>
+
+        <Drawer
+          anchor="right"
+          open={open}
+          onClose={() => setOpen(false)}
+          PaperProps={{
+            sx: { backgroundColor: "#0f1f1d", color: "white" },
+          }}
+        >
+          <Box sx={{ width: 250 }}>
+            <List>
+              {navItems.map((item, index) => (
+                <ListItem key={index} disablePadding>
+                  <ListItemButton
+                    component={Link}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                  >
+                    <ListItemIcon sx={{ color: "white" }}>
+                      {item.icon}
+                    </ListItemIcon>
+                    <ListItemText primary={item.label} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
       </Toolbar>
     </AppBar>
-  )
+  );
 }
