@@ -15,17 +15,17 @@ interface BerandaData {
 const shortcuts = [
   {
     label: "Profil Nagari",
-    icon: <AccountTreeIcon sx={{ fontSize: 60 }} />, // diperbesar
+    icon: <AccountTreeIcon sx={{ fontSize: 60 }} />,
     href: "/profil-nagari",
   },
   {
     label: "Berita",
-    icon: <NewspaperIcon sx={{ fontSize: 60 }} />, // diperbesar
+    icon: <NewspaperIcon sx={{ fontSize: 60 }} />,
     href: "/berita",
   },
   {
     label: "Wisata",
-    icon: <TravelExploreIcon sx={{ fontSize: 60 }} />, // diperbesar
+    icon: <TravelExploreIcon sx={{ fontSize: 60 }} />,
     href: "/wisata",
   },
 ];
@@ -55,15 +55,35 @@ export default function ShortcutAndProfile() {
 
   return (
     <Box sx={{ px: 4, py: 6 }}>
-      {/* Tentang Nagari */}
-      <Box sx={{ mb: 6, textAlign: "center", maxWidth: 800, mx: "auto" }}>
-        <Typography variant="h4" fontWeight="bold" color="green" gutterBottom>
-          Tentang Nagari Sungai Nanam
-        </Typography>
-        <Typography variant="body1">
+      {/* Judul Tentang Nagari */}
+      <Typography
+        variant="h4"
+        fontWeight="bold"
+        color="green"
+        textAlign="center"
+        sx={{ mb: 2 }}
+      >
+        Tentang Nagari Sungai Nanam
+      </Typography>
+
+      {/* Deskripsi Tentang Nagari */}
+      <Paper
+        elevation={3}
+        sx={{
+          mb: 6,
+          px: 4,
+          py: 3,
+          maxWidth: 900,
+          mx: "auto",
+          textAlign: "center",
+          borderRadius: 3,
+          backgroundColor: "#fafafa",
+        }}
+      >
+        <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
           {description}
         </Typography>
-      </Box>
+      </Paper>
 
       {/* Tombol Shortcut */}
       <Grid container spacing={3} justifyContent="center">
@@ -82,9 +102,9 @@ export default function ShortcutAndProfile() {
               onClick={() => router.push(item.href)}
               sx={{
                 backgroundColor: "#f0eada",
-                height: 180, // diperbesar
+                height: 200,
                 width: "100%",
-                maxWidth: 220, // diperbesar
+                maxWidth: 260, // sedikit dilebarkan
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
